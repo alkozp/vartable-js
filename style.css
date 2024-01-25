@@ -120,6 +120,11 @@ details {
     margin: 2vh auto;
 }
 
+summary {
+    color:darkorange;
+}
+
 details img {
-    width: 30vw;
+    width: 28vw;
+    padding: 1vw;
 }
