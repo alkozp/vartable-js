@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+        <table>
+            <caption>Var  <span>vs</span> Let <span>vs</span> Const</caption>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>var</th>
+                    <th>let</th>
+                    <th>const</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr id="info-row1">
+                    <td>stored in global scope</td>
+                    <td><span class="icon true">&check;</span></td>
+                    <td><span class="icon false">&CircleTimes;</span></td>
+                    <td><span class="icon false">&CircleTimes;</span></td>
+                </tr>
+                <tr id="example-row1">
+                    <td colspan="4">
+                        <iframe id="codeviewer1"></iframe>
+                    </td>
+                </tr>
+                <tr id="info-row2">
+                    <td>function scope</td>
+                    <td><span class="icon true">&check;</span></td>
+                    <td><span class="icon true">&check;</span></td>
+                    <td><span class="icon true">&check;</span></td>
+                </tr>
+                <tr id="example-row2">
+                    <td colspan="4">
+                        <iframe id="codeviewer2"></iframe>
+                    </td>
+                </tr>
+                <tr id="info-row3">
+                    <td>block scope</td>
+                    <td><span class="icon false">&CircleTimes;</span></td>
+                    <td><span class="icon true">&check;</span></td>
+                    <td><span class="icon true">&check;</span></td>
+                </tr>
+                <tr id="example-row3">
+                    <td colspan="4">
+                        <iframe id="codeviewer3"></iframe>
+                    </td>
+                </tr>
+                <tr id="info-row4">
+                    <td>can be reassigned</td>
+                    <td><span class="icon true">&check;</span></td>
+                    <td><span class="icon true">&check;</span></td>
+                    <td><span class="icon false">&CircleTimes;</span></td>
+                </tr>
+                <tr id="example-row4">
+                    <td colspan="4">
+                        <iframe id="codeviewer4"></iframe>
+                    </td>
+                </tr>
+                <tr id="info-row5">
+                    <td>can be redeclared?</td>
+                    <td><span class="icon true">&check;</span></td>
+                    <td><span class="icon false">&CircleTimes;</span></td>
+                    <td><span class="icon false">&CircleTimes;</span></td>
+                </tr>
+                <tr id="example-row5">
+                    <td colspan="4">
+                        <iframe id="codeviewer5"></iframe>
+                    </td>
+                </tr>
+                <tr id="info-row6">
+                    <td>can be hoisted?</td>
+                    <td><span class="icon true">&check;</span></td>
+                    <td><span class="icon false">&CircleTimes;</span></td>
+                    <td><span class="icon false">&CircleTimes;</span></td>
+                </tr>
+                <tr id="example-row6">
+                    <td colspan="4">
+                        <iframe id="codeviewer6"></iframe>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+<pre id="example1" style="display:none">
+    code 1
+    $("#iframe").ready(function() {
+        var $doc = $("#iframe").contentWindow.document;
+        var $body = $("body").text("Test");
+        $body.insertAfter($doc);
+    });
+</pre>
+<pre id="example2" style="display:none">
+    code 2
+    $("#iframe").ready(function() {
+        var $doc = $("#iframe").contentWindow.document;
+        var $body = $("body").text("Test");
+        $body.insertAfter($doc);
+    });
+</pre>
+<pre id="example3" style="display:none">
+    code 3
+    $("#iframe").ready(function() {
+        var $doc = $("#iframe").contentWindow.document;
+        var $body = $("body").text("Test");
+        $body.insertAfter($doc);
+    });
+</pre>
+<pre id="example4" style="display:none">
+    code 4
+    $("#iframe").ready(function() {
+        var $doc = $("#iframe").contentWindow.document;
+        var $body = $("body").text("Test");
+        $body.insertAfter($doc);
+    });
+</pre>
+<pre id="example5" style="display:none">
+    code 5
+    $("#iframe").ready(function() {
+        var $doc = $("#iframe").contentWindow.document;
+        var $body = $("body").text("Test");
+        $body.insertAfter($doc);
+    });
+</pre>
+<pre id="example6" style="display:none">
+    code 6
+    $("#iframe").ready(function() {
+        var $doc = $("#iframe").contentWindow.document;
+        var $body = $("body").text("Test");
+        $body.insertAfter($doc);
+    });
+</pre>
+
+        <script src="code.js"></script>
+
+</body>
+</html>
