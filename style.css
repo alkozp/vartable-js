@@ -114,3 +114,12 @@ tr[id^="example-row"] {
 tr[id^="example-row"] td {
     padding: 0;
 }
+
+details {
+    width: 30vw;
+    margin: 2vh auto;
+}
+
+details img {
+    width: 30vw;
+}

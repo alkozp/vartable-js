@@ -33,11 +33,11 @@ function createExamples() {
 
 function visibilityRow(currentRow, state) {
     if (state === 'collapse') {
-        currentRow.style.transition = '0.3s';
+        currentRow.style.transition = '0.2s';
         currentRow.style.opacity = 0;
         currentRow.style.visibility = 'collapse';
     } else if (state === 'visible') {
-        currentRow.style.transition = '0.5s';
+        currentRow.style.transition = '0.7s';
         currentRow.style.opacity = 1;
         currentRow.style.visibility = 'visible';
     }
