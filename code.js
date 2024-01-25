@@ -25,9 +25,6 @@ function createExamples() {
         const currentExample = document.getElementById('example'+frameNumber);
         const docFrame = createFrameContent(currentExample);
         frame.srcdoc = docFrame;
-        //frame.style.height = frame.contentWindow.document.body.scrollHeight + 'px';
-        
-        //console.log(frame.contentWindow.document.body.height);
     }
 }
 
@@ -49,9 +46,6 @@ function openExample(event) {
     const selectedRowId = event.target.closest('tr').id;
     const rowNumber = selectedRowId.split(/(\d)/)[1];
     const currentExample = document.getElementById('example-row'+rowNumber);
-    //const currentFrame = document.getElementById('codeviewer'+rowNumber);
-
-    //console.log(currentExample.style.visibility);
 
     //collapse all examples exclude current 
     const exampleRowList = document.querySelectorAll('tr[id^="example-row"]');
@@ -64,16 +58,9 @@ function openExample(event) {
     //toggle current example state
     if (currentExample.style.visibility === 'collapse' || currentExample.style.visibility === ''){
         visibilityRow(currentExample, 'visible')
-        //currentFrame.style.height = currentFrame.contentWindow.document.body.height+'px';
     } else {
         visibilityRow(currentExample, 'collapse')
     }  
-
-    // console.log(1, event);
-    // console.log(event.target);
-    // console.log(currentExample);
-    // console.log(selectedRowId);
-    // console.log(selectedRow.nextElementSibling.id);
 }
 
 
