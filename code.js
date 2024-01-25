@@ -31,6 +31,7 @@ function createExamples() {
     }
 }
 
+//set row visibility
 function visibilityRow(currentRow, state) {
     if (state === 'collapse') {
         currentRow.style.transition = '0.2s';
@@ -80,5 +81,5 @@ function openExample(event) {
 window.onload = createExamples();
 
 //
-tableVars = document.querySelector('table');        
+const tableVars = document.querySelector('table');        
 tableVars.addEventListener("click", openExample)
