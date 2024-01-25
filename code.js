@@ -44,7 +44,7 @@ function openExample(event) {
     const exampleRowList = document.querySelectorAll('tr[id^="example-row"]');
     for (const row of exampleRowList) {
         if (row.style.visibility === 'visible' && row.id !== currentExample.id) {
-            row.style.transition = '1s';
+            row.style.transition = '0.5s';
             row.style.opacity = 0;
             row.style.visibility = 'collapse';
         }
@@ -52,12 +52,12 @@ function openExample(event) {
 
     //toggle current example state
     if (currentExample.style.visibility === 'collapse' || currentExample.style.visibility === ''){
-        currentExample.style.transition = '1s';
+        currentExample.style.transition = '0.5s';
         currentExample.style.opacity = 1;
         currentExample.style.visibility = 'visible';
         currentFrame.style.height = currentFrame.contentWindow.document.body.height+'px';
     } else {
-        currentExample.style.transition = '1s';
+        currentExample.style.transition = '0.5s';
         currentExample.style.opacity = 0;
         currentExample.style.visibility = 'collapse';
     }  
