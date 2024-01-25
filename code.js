@@ -1,3 +1,4 @@
+//create content for iframe
 function createFrameContent(exampleContent) {
 
     let docFrame = `
@@ -16,17 +17,31 @@ function createFrameContent(exampleContent) {
     return docFrame;
 }
 
-function createExamples() {
 
+//resize iframe height for content
+function resizeFrameHeight(frame) {
+    frame.style.height = frame.contentWindow.document.documentElement.scrollHeight + 'px';
+}
+
+
+
+//create iframes content
+function createExamples() {
     const examplesList = document.querySelectorAll('iframe[id^="codeviewer"]');
 
     for (const frame of examplesList) {
         const frameNumber = frame.id.split(/(\d)/)[1];
         const currentExample = document.getElementById('example'+frameNumber);
         const docFrame = createFrameContent(currentExample);
+        frame.onload = ()=>{
+            return resizeFrameHeight(frame);
+        };
         frame.srcdoc = docFrame;
+        console.log(frame);
     }
 }
+
+
 
 //set row visibility
 function visibilityRow(currentRow, state) {
@@ -41,11 +56,13 @@ function visibilityRow(currentRow, state) {
     }
 }
 
-function openExample(event) {
-    //const selectedRow = event.target.closest('tr')
+
+
+function switchExampleState(event) {
     const selectedRowId = event.target.closest('tr').id;
     const rowNumber = selectedRowId.split(/(\d)/)[1];
     const currentExample = document.getElementById('example-row'+rowNumber);
+
 
     //collapse all examples exclude current 
     const exampleRowList = document.querySelectorAll('tr[id^="example-row"]');
@@ -55,7 +72,7 @@ function openExample(event) {
         }
     }
 
-    //toggle current example state
+    //switch current example state
     if (currentExample.style.visibility === 'collapse' || currentExample.style.visibility === ''){
         visibilityRow(currentExample, 'visible')
     } else {
@@ -64,9 +81,10 @@ function openExample(event) {
 }
 
 
-// create iframes content after loading page
+
+
+// start create iframes content after loading page
 window.onload = createExamples();
 
-//
 const tableVars = document.querySelector('table');        
-tableVars.addEventListener("click", openExample)
+tableVars.addEventListener("click", switchExampleState);
