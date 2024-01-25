@@ -31,12 +31,24 @@ function createExamples() {
     }
 }
 
+function visibilityRow(currentRow, state) {
+    if (state === 'collapse') {
+        currentRow.style.transition = '0.3s';
+        currentRow.style.opacity = 0;
+        currentRow.style.visibility = 'collapse';
+    } else if (state === 'visible') {
+        currentRow.style.transition = '0.5s';
+        currentRow.style.opacity = 1;
+        currentRow.style.visibility = 'visible';
+    }
+}
+
 function openExample(event) {
     //const selectedRow = event.target.closest('tr')
     const selectedRowId = event.target.closest('tr').id;
     const rowNumber = selectedRowId.split(/(\d)/)[1];
     const currentExample = document.getElementById('example-row'+rowNumber);
-    const currentFrame = document.getElementById('codeviewer'+rowNumber);
+    //const currentFrame = document.getElementById('codeviewer'+rowNumber);
 
     //console.log(currentExample.style.visibility);
 
@@ -44,22 +56,16 @@ function openExample(event) {
     const exampleRowList = document.querySelectorAll('tr[id^="example-row"]');
     for (const row of exampleRowList) {
         if (row.style.visibility === 'visible' && row.id !== currentExample.id) {
-            row.style.transition = '0.5s';
-            row.style.opacity = 0;
-            row.style.visibility = 'collapse';
+            visibilityRow(row, "collapse");
         }
     }
 
     //toggle current example state
     if (currentExample.style.visibility === 'collapse' || currentExample.style.visibility === ''){
-        currentExample.style.transition = '0.5s';
-        currentExample.style.opacity = 1;
-        currentExample.style.visibility = 'visible';
-        currentFrame.style.height = currentFrame.contentWindow.document.body.height+'px';
+        visibilityRow(currentExample, 'visible')
+        //currentFrame.style.height = currentFrame.contentWindow.document.body.height+'px';
     } else {
-        currentExample.style.transition = '0.5s';
-        currentExample.style.opacity = 0;
-        currentExample.style.visibility = 'collapse';
+        visibilityRow(currentExample, 'collapse')
     }  
 
     // console.log(1, event);
