@@ -37,7 +37,6 @@ function createExamples() {
             return resizeFrameHeight(frame);
         };
         frame.srcdoc = docFrame;
-        console.log(frame);
     }
 }
 
@@ -59,7 +58,18 @@ function visibilityRow(currentRow, state) {
 
 
 function switchExampleState(event) {
-    const selectedRowId = event.target.closest('tr').id;
+    let selectedRowId;
+    try {
+        selectedRowId = event.target.closest('tr').id;
+    }
+    catch {
+        selectedRowId = false;
+    }
+    // if click on table caption
+    if (!selectedRowId){
+        return false;
+    }
+
     const rowNumber = selectedRowId.split(/(\d)/)[1];
     const currentExample = document.getElementById('example-row'+rowNumber);
 
