@@ -5,6 +5,8 @@
  --second-table-bg-color: #1f2b37;
  --table-internal-border: #5c697a;
  --options-color: #03bb6d;
+ --icon-true-color: #22fe7e;
+ --icon-false-color: red;
 }
 
  
@@ -80,7 +82,7 @@ th {
     padding: 0.5rem;
 } */
 
-.icon {
+/* .icon {
     display: inline-flex;
     font-family: auto;
     font-size: 2rem;
@@ -97,7 +99,23 @@ th {
 
 .false {
     background-color:#e13c32;
-}
+} */
+
+.material-symbols-outlined {
+    font-size: 3rem;
+    font-variation-settings:
+    'FILL' 1,
+    'wght' 600,
+    'GRAD' 0,
+    'opsz' 36
+  }
+  
+  .icon-false {
+      color: var(--icon-false-color);
+  }
+  .icon-true {
+      color: var(--icon-true-color);
+  }
 
 
 tr td:not(:last-child), tr th:not(:last-child) {
