@@ -143,6 +143,11 @@ tr[id^="example-row"] td {
     padding: 0;
 }
 
+details {
+    background-color: #1f2b37;
+    padding: 1rem 0;
+}
+
 summary {
     color:darkorange;
 }
