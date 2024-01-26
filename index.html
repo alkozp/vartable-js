@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <div class="wrapper">
         <table>
             <caption>Var  <span>vs</span> Let <span>vs</span> Const</caption>
             <thead>
@@ -90,11 +90,27 @@
                 </tr>
             </tbody>
         </table>
+
+        <div id="code-options">
+            <label for="highlight">Highlight code theme:</label>
+            <select name="highlight" id="highlight">
+                <optgroup label="prism.js">
+                    <option value="prism-coy">coy</option>
+                    <option value="prism-dark">dark</option>
+                    <option value="prism-funky">funky</option>
+                    <option value="prism-okaidia">okaidia</option>
+                    <option value="prism-solarizedlight">solarizedlight</option>
+                    <option value="prism-tomorrow" selected>tomorrow</option>
+                    <option value="prism-twilight">twilight</option>
+                </optgroup>
+            </select>
+        </div>
+
         <details>
             <summary>Meme here</summary>
             <img src="var.jpg" alt="var let const and js developer">
         </details>
-        
+    </div>    
 
 <pre id="example1" style="display:none">
     code 1

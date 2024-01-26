@@ -4,6 +4,7 @@
  --font-size: 1rem;
  --second-table-bg-color: #1f2b37;
  --table-internal-border: #5c697a;
+ --options-color: #03bb6d;
 }
 
  
@@ -17,6 +18,13 @@ body {
     color: var(--txt-color);
     font-size: var(--font-size);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
 }
 
 table {
@@ -115,16 +123,37 @@ tr[id^="example-row"] td {
     padding: 0;
 }
 
-details {
-    width: 30vw;
-    margin: 2vh auto;
-}
-
 summary {
     color:darkorange;
 }
 
+
 details img {
-    width: 28vw;
-    padding: 1vw;
+    max-width: 100%;
+    padding-top: 1rem;
+}
+
+#code-options {
+    margin: 2rem auto;
+}
+
+#code-options > select {
+    background-color: var(--second-table-bg-color);
+    color:var(--options-color);
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    border: 1px solid black;
+    border-radius: 0.2rem;
+}
+
+#code-options > label {
+    color: var(--options-color);
+}
+
+#code-options > select:focus {
+    outline: none;
+}
+
+#code-options > select  option {
+    margin: 1rem;
 }

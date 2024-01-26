@@ -1,9 +1,12 @@
+
+//https://unpkg.com/prismjs@1.29.0/themes/prism-coy.css
+
 //create content for iframe
-function createFrameContent(exampleContent) {
+function createFrameContent(exampleContent, highlightTheme) {
 
     let docFrame = `
     <head>
-        <link href="https://unpkg.com/prismjs@1.29.0/themes/prism-tomorrow.css" rel="stylesheet" />
+        <link href="https://unpkg.com/prismjs@1.29.0/themes/${highlightTheme}.css" rel="stylesheet" />
     </head>
     <body style="padding:0; margin:0">
     `;
@@ -29,10 +32,14 @@ function resizeFrameHeight(frame) {
 function createExamples() {
     const examplesList = document.querySelectorAll('iframe[id^="codeviewer"]');
 
+    const optionsHighlight = document.getElementById('highlight');
+    const selectedTheme = optionsHighlight[optionsHighlight.selectedIndex].value;
+
     for (const frame of examplesList) {
         const frameNumber = frame.id.split(/(\d)/)[1];
         const currentExample = document.getElementById('example'+frameNumber);
-        const docFrame = createFrameContent(currentExample);
+
+        const docFrame = createFrameContent(currentExample, selectedTheme);
         frame.onload = ()=>{
             return resizeFrameHeight(frame);
         };
@@ -45,11 +52,11 @@ function createExamples() {
 //set row visibility
 function visibilityRow(currentRow, state) {
     if (state === 'collapse') {
-        currentRow.style.transition = '0.2s';
+        currentRow.style.transition = 'all 0.2s';
         currentRow.style.opacity = 0;
         currentRow.style.visibility = 'collapse';
     } else if (state === 'visible') {
-        currentRow.style.transition = '0.7s';
+        currentRow.style.transition = 'all 0.7s';
         currentRow.style.opacity = 1;
         currentRow.style.visibility = 'visible';
     }
@@ -98,3 +105,6 @@ window.onload = createExamples();
 
 const tableVars = document.querySelector('table');        
 tableVars.addEventListener("click", switchExampleState);
+
+const optionsHighlight = document.getElementById('highlight');
+optionsHighlight.addEventListener("change", createExamples)
