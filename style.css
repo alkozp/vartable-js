@@ -44,9 +44,10 @@ caption {
     margin-bottom: 2rem;
 }
 
-caption span {
+caption > span {
+    display: inline-block;
     font-size: 2rem;
-    transform: rotate(45deg);
+    transform: rotate(-10deg);
 }
 
 th, td {
