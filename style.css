@@ -48,6 +48,7 @@ caption > span {
     display: inline-block;
     font-size: 2rem;
     transform: rotate(-10deg);
+    color: red;
 }
 
 th, td {
