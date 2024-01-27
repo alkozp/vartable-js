@@ -2,27 +2,27 @@
     "examples": [
         {
             "name": "example1",
-            "code": "code 1\n$(\"#iframe\").ready(function() {\n    var $doc = $(\"#iframe\").contentWindow.document;\n    var $body = $(\"body\").text(\"Test\");\n    $body.insertAfter($doc);\n});"
+            "code": "\nvar capitalCountry1 = 'Athens'; \nlet capitalCountry2 = 'Rome';\nconst capitalCountry3 = 'Berlin';\n\nfunction showCapitals() {\n    console.log(capitalCountry1); // Athens\n    console.log(capitalCountry2); // Rome\n    console.log(capitalCountry3); // Berlin\n}\n\nshowCapitals();\n"
         },
         {
             "name": "example2",
-            "code": "code 2\n$(\"#iframe\").ready(function() {\n    var $doc = $(\"#iframe\").contentWindow.document;\n    var $body = $(\"body\").text(\"Test\");\n    $body.insertAfter($doc);\n});"
+            "code": "\nvar capitalCountry1 = 'Athens'; \nlet capitalCountry2 = 'Rome';\nconst capitalCountry3 = 'Berlin';\nfunction newCapitals() {\n    var capitalCountry1 = 'Paris';\n    let capitalCountry2 = 'London'; \n    const capitalCountry3 = 'Prague'; \n}\nconsole.log(capitalCountry1); // Athens\nconsole.log(capitalCountry2); // Rome\nconsole.log(capitalCountry3); // Berlin\n"
         },
         {
             "name": "example3",
-            "code": "code 3\n$(\"#iframe\").ready(function() {\n    var $doc = $(\"#iframe\").contentWindow.document;\n    var $body = $(\"body\").text(\"Test\");\n    $body.insertAfter($doc);\n});"
+            "code": "\nvar capitalCountry1 = 'Athens'; \nlet capitalCountry2 = 'Rome';\nconst capitalCountry3 = 'Berlin';\n{\n    var capitalCountry1 = 'Paris';\n    let capitalCountry2 = 'London'; \n    const capitalCountry3 = 'Prague'; \n}\nconsole.log(capitalCountry1); // Paris\nconsole.log(capitalCountry2); // Rome\nconsole.log(capitalCountry3); // Berlin\n"
         },
         {
             "name": "example4",
-            "code": "code 4\n$(\"#iframe\").ready(function() {\n    var $doc = $(\"#iframe\").contentWindow.document;\n    var $body = $(\"body\").text(\"Test\");\n    $body.insertAfter($doc);\n});"
+            "code": "\nvar capitalCountry1 = 'Athens'; \nlet capitalCountry2 = 'Rome';\nconst capitalCountry3 = 'Berlin';\n\ncapitalCountry1 = 'Paris'; // Paris\ncapitalCountry2 = 'London'; // London \ncapitalCountry3 = 'Prague'; // uncaught TypeError \n"
         },
         {
             "name": "example5",
-            "code": "code 5\n$(\"#iframe\").ready(function() {\n    var $doc = $(\"#iframe\").contentWindow.document;\n    var $body = $(\"body\").text(\"Test\");\n    $body.insertAfter($doc);\n});"
+            "code": "\nvar capitalCountry1 = 'Athens'; \nlet capitalCountry2 = 'Rome';\nconst capitalCountry3 = 'Berlin';\n\nvar capitalCountry1 = 'Paris'; //Paris\nlet capitalCountry2 = 'London'; // uncaught SyntaxError \nconst capitalCountry3 = 'Prague'; // uncaught SyntaxError \n"
         },
         {
             "name": "example6",
-            "code": "code 6\n$(\"#iframe\").ready(function() {\n    var $doc = $(\"#iframe\").contentWindow.document;\n    var $body = $(\"body\").text(\"Test\");\n    $body.insertAfter($doc);\n});"
+            "code": "console.log(capitalCountry1); // undefined \n console.log(capitalCountry2); // uncaught ReferenceError\n console.log(capitalCountry3); // uncaught ReferenceError\n\n var capitalCountry1 = 'Athens'; \n let capitalCountry2 = 'Rome';\n const capitalCountry3 = 'Berlin';"
         }
     ]
 }
