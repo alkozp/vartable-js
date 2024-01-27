@@ -1,0 +1,28 @@
+{
+    "examples": [
+        {
+            "name": "example1",
+            "code": "code 1\n$(\"#iframe\").ready(function() {\n    var $doc = $(\"#iframe\").contentWindow.document;\n    var $body = $(\"body\").text(\"Test\");\n    $body.insertAfter($doc);\n});"
+        },
+        {
+            "name": "example2",
+            "code": "code 2\n$(\"#iframe\").ready(function() {\n    var $doc = $(\"#iframe\").contentWindow.document;\n    var $body = $(\"body\").text(\"Test\");\n    $body.insertAfter($doc);\n});"
+        },
+        {
+            "name": "example3",
+            "code": "code 3\n$(\"#iframe\").ready(function() {\n    var $doc = $(\"#iframe\").contentWindow.document;\n    var $body = $(\"body\").text(\"Test\");\n    $body.insertAfter($doc);\n});"
+        },
+        {
+            "name": "example4",
+            "code": "code 4\n$(\"#iframe\").ready(function() {\n    var $doc = $(\"#iframe\").contentWindow.document;\n    var $body = $(\"body\").text(\"Test\");\n    $body.insertAfter($doc);\n});"
+        },
+        {
+            "name": "example5",
+            "code": "code 5\n$(\"#iframe\").ready(function() {\n    var $doc = $(\"#iframe\").contentWindow.document;\n    var $body = $(\"body\").text(\"Test\");\n    $body.insertAfter($doc);\n});"
+        },
+        {
+            "name": "example6",
+            "code": "code 6\n$(\"#iframe\").ready(function() {\n    var $doc = $(\"#iframe\").contentWindow.document;\n    var $body = $(\"body\").text(\"Test\");\n    $body.insertAfter($doc);\n});"
+        }
+    ]
+}

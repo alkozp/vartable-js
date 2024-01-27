@@ -11,7 +11,7 @@ function createFrameContent(exampleContent, highlightTheme) {
     <body style="padding:0; margin:0">
     `;
     
-    docFrame += `<pre><code class="language-javascript"> ${exampleContent.innerHTML} </code></pre>`;
+    docFrame += `<pre><code class="language-javascript"> ${exampleContent} </code></pre>`;
     docFrame += `
     <script src="https://unpkg.com/prismjs@1.29.0/components/prism-core.min.js"></sc`+`ript>
     <script src="https://unpkg.com/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></sc`+`ript>
@@ -26,10 +26,41 @@ function resizeFrameHeight(frame) {
     frame.style.height = frame.contentWindow.document.documentElement.scrollHeight + 'px';
 }
 
+async function getExamplesFromJSON (fileJSON) {
 
+    let response;
+    try{
+        response = await fetch(fileJSON);
+        const data = await response.json();
+        //console.log(data);
+        return data;
+    }
+    catch(error) {
+        console.warn(error);
+    }
+}
 
 //create iframes content
-function createExamples() {
+async function createExamples() {
+    const examplesList = document.querySelectorAll('iframe[id^="codeviewer"]');
+
+    const optionsHighlight = document.getElementById('highlight');
+    const selectedTheme = optionsHighlight[optionsHighlight.selectedIndex].value;
+    const examplesFromJSON = await getExamplesFromJSON('./examples.json');
+
+    for (const frame of examplesList) {
+        const frameNumber = frame.id.split(/(\d)/)[1];
+        const currentExample = examplesFromJSON.examples[frameNumber-1];
+        const docFrame = createFrameContent(currentExample.code, selectedTheme);
+        frame.onload = ()=>{
+            return resizeFrameHeight(frame);
+        };
+        frame.srcdoc = docFrame;
+    }
+}
+
+//create iframes content
+function createExamplesFromHTML() {
     const examplesList = document.querySelectorAll('iframe[id^="codeviewer"]');
 
     const optionsHighlight = document.getElementById('highlight');
@@ -39,7 +70,7 @@ function createExamples() {
         const frameNumber = frame.id.split(/(\d)/)[1];
         const currentExample = document.getElementById('example'+frameNumber);
 
-        const docFrame = createFrameContent(currentExample, selectedTheme);
+        const docFrame = createFrameContent(currentExample.innerHTML, selectedTheme);
         frame.onload = ()=>{
             return resizeFrameHeight(frame);
         };
