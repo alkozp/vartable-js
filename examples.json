@@ -2,7 +2,7 @@
     "examples": [
         {
             "name": "example1",
-            "code": "\nvar capitalCountry1 = 'Athens'; \nlet capitalCountry2 = 'Rome';\nconst capitalCountry3 = 'Berlin';\n\nfunction showCapitals() {\n    console.log(capitalCountry1); // Athens\n    console.log(capitalCountry2); // Rome\n    console.log(capitalCountry3); // Berlin\n}\n\nshowCapitals();\n"
+            "code": "\nshowCapitals = true;\n\nif (showCapitals === true) {\n    var capitalCountry1 = 'Athens'; \n    let capitalCountry2 = 'Rome';\n    const capitalCountry3 = 'Berlin';\n}\n\nconsole.log(showCapitals); // true\nconsole.log(capitalCountry1); // Athens\nconsole.log(capitalCountry2); // uncaught ReferenceError\nconsole.log(capitalCountry3); // uncaught ReferenceError\n"
         },
         {
             "name": "example2",
