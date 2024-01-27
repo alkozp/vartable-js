@@ -183,3 +183,25 @@ details img {
 #code-options > select  option {
     margin: 1rem;
 }
+
+.tooltip {
+    visibility: hidden;
+    position: fixed;
+    width: 500px;
+    border:1px solid #03bb6d;
+    background-color:#1f2b37;
+    padding: 1rem;
+    top: 1rem;
+    font-weight: 400;
+    font-size: 0.9rem;
+    text-transform: none;
+    line-height: 1.5rem;
+}
+
+.tooltip mark {
+    padding: 0.1rem;
+}
+
+td:hover .tooltip {
+    visibility: visible;
+}

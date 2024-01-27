@@ -24,7 +24,9 @@
             </thead>
             <tbody>
                 <tr id="info-row1">
-                    <td>stored in global scope</td>
+                    <td>
+                        <span class="tooltip">Variables <strong>defined outside</strong> any function, block, or module scope have <mark>global scope</mark>. We can access variables in <mark>global scope</mark> from any point in the application. Global variables are available for the lifetime of the application.</span>
+                        stored in global scope</td>
                     <td><span class="material-symbols-outlined icon-true">check_circle</span></td>
                     <td><span class="material-symbols-outlined icon-false">cancel</span></td>
                     <td><span class="material-symbols-outlined icon-false">cancel</span></td>
@@ -35,7 +37,9 @@
                     </td>
                 </tr>
                 <tr id="info-row2">
-                    <td>function scope</td>
+                    <td>
+                        <span class="tooltip">Variables that are <strong>declared inside</strong> a function are called local variables and in the <mark>function scope</mark>. Local variables are accessible anywhere inside the function.</span>
+                        function scope</td>
                     <td><span class="material-symbols-outlined icon-true">check_circle</span></td>
                     <td><span class="material-symbols-outlined icon-true">check_circle</span></td>
                     <td><span class="material-symbols-outlined icon-true">check_circle</span></td>
@@ -46,7 +50,9 @@
                     </td>
                 </tr>
                 <tr id="info-row3">
-                    <td>block scope</td>
+                    <td>
+                        <span class="tooltip">Variable that is declared inside a <mark>specific block</mark> &amp can’t be accessed outside of that block. In order to access the variables of that <mark>specific block</mark>, we need to create an object for it.</span>
+                        block scope</td>
                     <td><span class="material-symbols-outlined icon-false">cancel</span></td>
                     <td><span class="material-symbols-outlined icon-true">check_circle</span></td>
                     <td><span class="material-symbols-outlined icon-true">check_circle</span></td>
@@ -57,7 +63,9 @@
                     </td>
                 </tr>
                 <tr id="info-row4">
-                    <td>can be reassigned</td>
+                    <td>
+                        <span class="tooltip">When variables are <mark>reassigned</mark>, their value changes to that of the newer value specified, and the previous value is lost. </span>
+                        can be reassigned</td>
                     <td><span class="material-symbols-outlined icon-true">check_circle</span></td>
                     <td><span class="material-symbols-outlined icon-true">check_circle</span></td>
                     <td><span class="material-symbols-outlined icon-false">cancel</span></td>
@@ -68,7 +76,9 @@
                     </td>
                 </tr>
                 <tr id="info-row5">
-                    <td>can be redeclared?</td>
+                    <td>
+                        <span class="tooltip">To <mark>redeclare</mark> a variable simply means to declare an already declared variable or identifier regardless of whether in the same block or outer scope.</span>
+                        can be redeclared?</td>
                     <td><span class="material-symbols-outlined icon-true">check_circle</span></td>
                     <td><span class="material-symbols-outlined icon-false">cancel</span></td>
                     <td><span class="material-symbols-outlined icon-false">cancel</span></td>
@@ -79,7 +89,9 @@
                     </td>
                 </tr>
                 <tr id="info-row6">
-                    <td>can be hoisted?</td>
+                    <td>
+                        <span class="tooltip">In JavaScript, <mark>hoisting</mark> refers to the built-in behavior of the language through which declarations of functions, variables, and classes are moved to the top of their scope – all before code execution. In turn, this allows us to use functions, variables, and classes before they are declared</span>
+                        can be hoisted?</td>
                     <td><span class="material-symbols-outlined icon-true">check_circle</span></td>
                     <td><span class="material-symbols-outlined icon-false">cancel</span></td>
                     <td><span class="material-symbols-outlined icon-false">cancel</span></td>
