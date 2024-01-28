@@ -2,16 +2,42 @@
 //https://unpkg.com/prismjs@1.29.0/themes/prism-coy.css
 
 //create content for iframe
-function createFrameContent(exampleContent, highlightTheme) {
+function createFrameContent(exampleContent, highlightTheme, highlighter = 'prism' ) {
 
-    let docFrame = `
+    let docFrame = '';
+    
+    const prismHeader =`
     <head>
         <link href="https://unpkg.com/prismjs@1.29.0/themes/${highlightTheme}.css" rel="stylesheet" />
+        <script src="https://unpkg.com/prismjs@1.29.0/components/prism-core.min.js"></sc`+`ript>
+        <script src="https://unpkg.com/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></sc`+`ript>
+    `;
+    
+    const hTheme = highlightTheme.split ('highlight-')[1];
+
+    const highlightHeader = `
+    <head>
+        <link href="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/${hTheme}.min.css" rel="stylesheet" />
+        <script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/highlight.js"></sc`+`ript>
+        <script>hljs.highlightAll();</scr`+`ipt>
+    `;
+    
+    if (highlighter === 'prism') {
+        docFrame += prismHeader;
+    } else if (highlighter === 'highlight') {
+        docFrame += highlightHeader; 
+    }
+
+    docFrame += `
         <style>
+            html{
+                font-size: 1rem;
+            }
             .console{
                 font-family: monospace;
                 background-color: darkslategray;
                 padding: 0.2rem;
+                font-size: 0.8rem;
             }
             .console>span {
                 color: lightgray;
@@ -34,11 +60,7 @@ function createFrameContent(exampleContent, highlightTheme) {
     `;
     
     docFrame += `<pre><code class="language-javascript"> ${exampleContent} </code></pre>`;
-    docFrame += `
-    <script src="https://unpkg.com/prismjs@1.29.0/components/prism-core.min.js"></sc`+`ript>
-    <script src="https://unpkg.com/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></sc`+`ript>
-    `;
-
+  
     //add code runner and console output
     const output = `<div class='console'><span>Console output:<span><div class='output'></div></div>`;
     
@@ -89,16 +111,21 @@ async function createExamples() {
 
     const optionsHighlight = document.getElementById('highlight');
     const selectedTheme = optionsHighlight[optionsHighlight.selectedIndex].value;
+    const highlighter = selectedTheme.split('-')[0];
+    console.log(selectedTheme, highlighter);
+
     const examplesFromJSON = await getExamplesFromJSON('./examples.json');
 
     for (const frame of examplesList) {
         const frameNumber = frame.id.split(/(\d)/)[1];
         const currentExample = examplesFromJSON.examples[frameNumber-1];
-        const docFrame = createFrameContent(currentExample.code, selectedTheme);
+        const docFrame = createFrameContent(currentExample.code, selectedTheme, highlighter);
+        frame.style.height = 0;
         frame.onload = ()=>{
             return resizeFrameHeight(frame);
         };
         frame.srcdoc = docFrame;
+        
     }
 }
 
