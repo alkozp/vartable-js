@@ -10,9 +10,11 @@ function createFrameContent(exampleContent, highlightTheme) {
         <style>
             .console{
                 font-family: monospace;
-                color: lightgray;
                 background-color: darkslategray;
                 padding: 0.2rem;
+            }
+            .console>span {
+                color: lightgray;
             }
             .output {
                 border-top: 1px solid gray;
@@ -38,7 +40,7 @@ function createFrameContent(exampleContent, highlightTheme) {
     `;
 
     //add code runner and console output
-    const output = `<div class='console'>Console output:<div class='output'></div></div>`;
+    const output = `<div class='console'><span>Console output:<span><div class='output'></div></div>`;
     
     const codeRunner = `
     <script>

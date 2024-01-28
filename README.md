@@ -4,7 +4,8 @@ Project help students understand using VAR, LET, CONST in JavaScript
 
 ## last fixes
 
-- ADD console output
+- FIX: console style 
+- ADD: console output
 - FIX: tooltips
 - FIX: examples
 - ADDED: examples 
