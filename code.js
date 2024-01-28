@@ -7,6 +7,26 @@ function createFrameContent(exampleContent, highlightTheme) {
     let docFrame = `
     <head>
         <link href="https://unpkg.com/prismjs@1.29.0/themes/${highlightTheme}.css" rel="stylesheet" />
+        <style>
+            .console{
+                font-family: monospace;
+                color: lightgray;
+                background-color: darkslategray;
+                padding: 0.2rem;
+            }
+            .output {
+                border-top: 1px solid gray;
+                margin-top: 0.5rem;
+            }
+            .result{
+                color: lime;
+                padding: 0.2rem;
+            }
+            .error {
+                color: red;
+                padding: 0.2rem;
+            }
+        </style>
     </head>
     <body style="padding:0; margin:0">
     `;
@@ -17,6 +37,27 @@ function createFrameContent(exampleContent, highlightTheme) {
     <script src="https://unpkg.com/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></sc`+`ript>
     `;
 
+    //add code runner and console output
+    const output = `<div class='console'>Console output:<div class='output'></div></div>`;
+    
+    const codeRunner = `
+    <script>
+        const out = document.querySelector('.output'); 
+        console.log = function (...args) {
+            const logString = args.join(' ');
+            out.innerHTML+= '<div class="result">&gt;&gt; '+logString+'</div>';
+        };
+        try{
+            eval(\`${exampleContent}\`);
+        } catch (error) {
+            out.innerHTML+= '<div class="error">&gt;&gt; '+error+'</div>';
+        }
+    </scr`+`ipt>
+    `;
+
+
+    docFrame += output;
+    docFrame += codeRunner;
     return docFrame;
 }
 
