@@ -144,6 +144,7 @@ tr[id^="example-row"] td {
 }
 
 details {
+    position: relative;
     background-color: #1f2b37;
     padding: 1rem 0;
 }
@@ -206,4 +207,26 @@ details img {
 
 td:hover .tooltip {
     visibility: visible;
+}
+
+.copy {
+    padding-top: 1rem;
+    text-align: right;
+    font-size: 0.85rem;
+    color: lightgray;
+    font-family: monospace;
+}
+.copy span{
+    color:#22fe7e;
+}
+
+.copy a {
+    text-decoration: none;
+    color: lightgray;
+    font-weight: bold;
+}
+
+.copy a:hover {
+    text-decoration: underline;
+    color: whitesmoke;
 }
