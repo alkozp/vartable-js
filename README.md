@@ -1,14 +1,18 @@
 # vartable-js
 
-Project help students understand using VAR, LET, CONST in JavaScript
+Project help students understand using VAR, LET, CONST in JavaScript.
 
-## last fixes
+## Special function
+- small tooltips
+- console output
+- examples loaded from file in json format
+- themes for code highliters
+- jokes and fun
 
-- ADD: highlight.js
-- FIX: console style 
-- ADD: console output
-- FIX: tooltips
-- FIX: examples
-- ADDED: examples 
-- ADDED: tooltips
-- REFACTORING: changed load examples method, using file `examples.json` 
+## Using
+Use [this page](https://github.com) on GitHub
+
+## Licences
+Free for use
+
+`<coded> intechgration 2024</coded>`
