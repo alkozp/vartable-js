@@ -1,5 +1,4 @@
 
-//https://unpkg.com/prismjs@1.29.0/themes/prism-coy.css
 
 //create content for iframe
 function createFrameContent(exampleContent, highlightTheme, highlighter = 'prism' ) {
@@ -97,7 +96,6 @@ async function getExamplesFromJSON (fileJSON) {
     try{
         response = await fetch(fileJSON);
         const data = await response.json();
-        //console.log(data);
         return data;
     }
     catch(error) {
@@ -112,7 +110,6 @@ async function createExamples() {
     const optionsHighlight = document.getElementById('highlight');
     const selectedTheme = optionsHighlight[optionsHighlight.selectedIndex].value;
     const highlighter = selectedTheme.split('-')[0];
-    console.log(selectedTheme, highlighter);
 
     const examplesFromJSON = await getExamplesFromJSON('./examples.json');
 
@@ -124,27 +121,7 @@ async function createExamples() {
         frame.onload = ()=>{
             return resizeFrameHeight(frame);
         };
-        frame.srcdoc = docFrame;
-        
-    }
-}
-
-//create iframes content
-function createExamplesFromHTML() {
-    const examplesList = document.querySelectorAll('iframe[id^="codeviewer"]');
-
-    const optionsHighlight = document.getElementById('highlight');
-    const selectedTheme = optionsHighlight[optionsHighlight.selectedIndex].value;
-
-    for (const frame of examplesList) {
-        const frameNumber = frame.id.split(/(\d)/)[1];
-        const currentExample = document.getElementById('example'+frameNumber);
-
-        const docFrame = createFrameContent(currentExample.innerHTML, selectedTheme);
-        frame.onload = ()=>{
-            return resizeFrameHeight(frame);
-        };
-        frame.srcdoc = docFrame;
+        frame.srcdoc = docFrame;       
     }
 }
 
