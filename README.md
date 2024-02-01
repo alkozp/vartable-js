@@ -2,11 +2,11 @@
 
 Project help students understand using VAR, LET, CONST in JavaScript.
 
-## Special function
+## Special functions
 - small tooltips
 - console output for code examples
 - examples loaded from file in json format
-- themes for code highliters (prism.js, highlight.js)
+- themes for code highlighters (prism.js, highlight.js)
 - jokes and fun
 
 ## Using
